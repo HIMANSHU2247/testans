@@ -4,7 +4,7 @@ public class EmployeeJDBC {
 
     public static void main(String[] args) {
 
-        // Database credentials
+        
         String url = "jdbc:mysql://localhost:3306/TEST";
         String user = "root";        // change if needed
         String password = "password"; // change if needed
@@ -14,10 +14,10 @@ public class EmployeeJDBC {
         ResultSet rs = null;
 
         try {
-            // Load Driver (optional for newer versions)
+            
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            // Establish Connection
+        
             con = DriverManager.getConnection(url, user, password);
             System.out.println("Connected to database!");
 
@@ -41,7 +41,7 @@ public class EmployeeJDBC {
 
             System.out.println("Records inserted successfully!");
 
-            // 2. UPDATE salary
+         
             String updateQuery = "UPDATE employee SET salary = ? WHERE id = ?";
             pstmt = con.prepareStatement(updateQuery);
 
@@ -51,7 +51,7 @@ public class EmployeeJDBC {
             pstmt.executeUpdate();
             System.out.println("Salary updated successfully!");
 
-            // 3. SELECT records
+           
             String selectQuery = "SELECT * FROM employee";
             pstmt = con.prepareStatement(selectQuery);
             rs = pstmt.executeQuery();
